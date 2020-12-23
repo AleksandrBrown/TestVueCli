@@ -1,3 +1,4 @@
+// Шаблон для нового поля контакта
 <template>
     <div class="v-add-field">
         <div class="v-add-field__txt_div">
@@ -34,17 +35,17 @@ export default {
     },
     methods: {
         deleteField() {
-            this.$emit('deleteField', this.field.id)
+            this.$emit('deleteField', this.field.id) //удаление поля
         }
     },
     watch: {
         field_1(){
             this.newV_1 = this.field_1
-            this.$emit('field_1_value',this.newV_1, this.field.id)
+            this.$emit('field_1_value',this.newV_1, this.field.id) //вывод вводимых значений в поле
         },
         field_2(){
             this.newV_2 = this.field_2
-            this.$emit('field_2_value',this.newV_2, this.field.id)
+            this.$emit('field_2_value',this.newV_2, this.field.id) //вывод вводимых значений в поле
             
         }
     },
@@ -53,9 +54,10 @@ export default {
 </script>
 <style lang="scss">
     .v-add-field{
-        display: grid;
-        grid-template-columns:80% 15%;
-        width: 15vw;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 20vw;
         height: 8vh;
         text-align: center;
         &__txt_div{
@@ -79,7 +81,7 @@ export default {
             &__input_bottom{
                     position: relative;
                     display: inline;
-                    &_el{
+                    input{
                         width: 20px!important;
                     }
             }
@@ -87,8 +89,6 @@ export default {
         &__btn_div{
             position: relative;
             width: 2vw;
-            display: flex;
-            flex-direction: column;
             overflow-y: hidden;
             .delete_btn{
                 width: 25px;

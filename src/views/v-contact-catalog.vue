@@ -1,8 +1,10 @@
+//Страница каталога контактов /Домашняя страница
 <template>
     <div class="v-contact-catalog">
         <div class="v-contact-catalog__add">
             <button @click="addContact"> + </button>
         </div>
+        <!-- //компонент для создания нового контакта -->
         <v-contact-add 
                 v-if="addCont == true"
                 :prof="profiles"
@@ -14,6 +16,7 @@
                 class="v-contact-catalog__List_wrapper"
                 v-if="profiles.length"
             >
+            <!-- //вывод контактов из api -->
                 <v-catalog-item 
                 v-for="profile of profiles"
                 :key="profile.id"
@@ -37,7 +40,7 @@ export default {
         }
     },
     methods: {
-        removeContact(id) {
+        removeContact(id) { //удаление контакта 
             console.log(id)
             let conf = confirm('вы уверены?')
             if(conf == true) {this.profiles = this.profiles.filter(prof => prof.id !== id)}
@@ -45,7 +48,7 @@ export default {
         addContact() {
             this.addCont = ! this.addCont
         },
-        getContact(profile) {
+        getContact(profile) { //добавление нового контакта (не в api)
             this.profiles.push(profile)
             console.log(this.profiles)
         },
@@ -57,7 +60,8 @@ export default {
         vCatalogItem,
         vContactAdd
     },
-    mounted() {
+    // запрос на сервер после загрузки страницы
+    mounted() { 
         fetch('https://jsonplaceholder.typicode.com/users')
             .then(response => response.json())
             .then(data => this.profiles = data)
@@ -104,6 +108,7 @@ export default {
             width: 5vw;
             height: 8vh;
             background: #fff;
+            overflow: hidden;
             button{
                 position: absolute;
                 top:2vh;

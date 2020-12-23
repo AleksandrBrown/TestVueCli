@@ -1,3 +1,4 @@
+//Шаблон страницы выбранного контакта
 <template>
     <div class="v-contact-info">
         <div class="v-contact-info__back_btn">
@@ -20,6 +21,7 @@
                 />
             </ul>
         </div>
+        <!-- //кнопки для добавления/удаления поля -->
         <div class="v-contact-info__settings">
             <button @click="addField">Добавить</button>
             <button @click="editField">Редактировать</button>
@@ -54,21 +56,21 @@ export default {
         editField() {
             this.showEditor = true
         },
-        deleteField(id) {
+        deleteField(id) { //удаление выбранного поля контакта с подтверждением
             let conf = confirm('вы уверены?')
             if(conf == true) {this.fields = this.fields.filter(field => field.id !== id)}
         },
-        field_1_value(string,id) {
+        field_1_value(string,id) { //запись значения в объект контакта
             let result = this.fields.filter(field => field.id == id)
             result[0].field_1 = string
         },
-        field_2_value(string,id) {
+        field_2_value(string,id) { //запись значения в объект контакта
             let result = this.fields.filter(field => field.id == id)
             result[0].field_2 = string
         }
     },
     props: ['profileInfo'],
-    components:{vAddField}
+    components: { vAddField }
 }
 </script>
 <style lang="scss">

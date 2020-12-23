@@ -1,3 +1,4 @@
+//Главный контейнер
 <template>
   <div id="app">
     <v-header />
@@ -28,6 +29,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
 }
+
 @media (max-width:1800px) and (min-width: 1110px){
   .v-contact-catalog {
     width: 50vw!important;
@@ -43,6 +45,10 @@ export default {
       font-size: .7em;
     }
   }
+  .v-contact-info__settings button {
+    width: 8vw!important;
+  }
+  .v-add-field__txt_div {left: 3vw!important;}
 }
 @media (max-width:1100px) and (min-width: 762px){
   .v-contact-catalog {
@@ -63,6 +69,18 @@ export default {
       font-size: .7em;
     }
   }
+  .v-contact-info__settings button {
+    width: 10vw!important;
+    font-size: .8em!important;
+  }
+  .v-catalog-item div h2{
+    font-size: 1em;
+  }
+  .v-add-field__txt_div {
+    width: 14vw!important;
+    height: auto;
+    left: 4vw!important;
+    }
 }
 @media (max-width:760px) and (min-width: 300px){
   .v-contact-catalog {
@@ -83,6 +101,27 @@ export default {
       width: 16vw;
       font-size: .5 em;
     }
+  }
+  .v-contact-info__settings button {
+    width: 15vw!important;
+    font-size: .2em!important;
+  }
+  .v-contact-info__back_btn {
+    width: 5vw!important;
+    height: 6vh!important;
+  }
+  .v-catalog-item div h2{
+    font-size: 1.5em;
+  }
+  .v-add-field {
+    width: 26vw!important;
+    height: 11vh!important;
+  }
+  .v-add-field__btn_div {
+    width: 4vw!important;
+  }
+  .v-add-field {
+    left: 12vw!important;
   }
 }
 </style>

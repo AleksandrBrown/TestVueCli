@@ -1,3 +1,4 @@
+// Шаблон контакта в каталоге 
 <template>
     <div class="v-catalog-item">
         <div><h3> {{ profile.id }} </h3></div>
@@ -16,10 +17,7 @@ export default {
         return {
         }
     },
-    props: ['profile'],
-    components: {
-       
-    }
+    props: ['profile']
 }
 </script>
 <style lang="scss">
